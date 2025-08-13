@@ -1,4 +1,4 @@
-name = "anycast-auth-backend"
+name = "anycast"
 main = "serveri.js"
 compatibility_date = "2024-01-01"
 
