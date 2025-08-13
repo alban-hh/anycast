@@ -1,6 +1,14 @@
-name = "anycast-health-check"
+name = "anycast-auth-backend"
 main = "serveri.js"
 compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "anycast-db"
+database_id = "fbf6ac69-1d52-48db-8c25-68cfbe91f646"
+
+[vars]
+JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production"
 
 [env.production]
 routes = [

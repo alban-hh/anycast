@@ -6,12 +6,19 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev",
-    "publish": "wrangler deploy --env production"
+    "publish": "wrangler deploy --env production",
+    "db:create": "wrangler d1 create anycast-db",
+    "db:migrate": "wrangler d1 migrations apply anycast-db"
+  },
+  "dependencies": {
+    "hono": "^3.12.0",
+    "@hono/jwt": "^1.0.0",
+    "bcryptjs": "^2.4.3"
   },
   "devDependencies": {
     "wrangler": "^3.0.0"
   },
   "author": "",
   "license": "ISC",
-  "description": "Cloudflare Workers health check server"
+  "description": "Cloudflare Workers auth backend with Hono and D1"
 }
