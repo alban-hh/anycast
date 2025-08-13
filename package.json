@@ -11,9 +11,7 @@
     "db:migrate": "wrangler d1 migrations apply anycast-db"
   },
   "dependencies": {
-    "hono": "^3.12.0",
-    "@hono/jwt": "^1.0.0",
-    "bcryptjs": "^2.4.3"
+    "hono": "^4.0.0"
   },
   "devDependencies": {
     "wrangler": "^3.0.0"
