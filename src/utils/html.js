@@ -69,6 +69,17 @@ export function merreHtmlPergjigjjen() {
                 <div class="seksion-titulli">🔒 Protected Endpoints:</div>
                 <div class="endpoint">GET /api/te-mbrojtura/profili - User Profile</div>
                 <div class="endpoint">GET /api/te-mbrojtura/dashboard - Dashboard</div>
+                <div class="endpoint">GET /api/te-mbrojtura/settings - User Settings</div>
+            </div>
+            
+            <div class="seksioni">
+                <div class="seksion-titulli">📝 Posts Endpoints:</div>
+                <div class="endpoint">POST /api/postime - Create Post</div>
+                <div class="endpoint">GET /api/postime - Get All Posts</div>
+                <div class="endpoint">GET /api/postime/te-miat - Get My Posts</div>
+                <div class="endpoint">GET /api/postime/:id - Get Single Post</div>
+                <div class="endpoint">PUT /api/postime/:id - Update Post</div>
+                <div class="endpoint">DELETE /api/postime/:id - Delete Post</div>
             </div>
             
             <div class="seksioni">

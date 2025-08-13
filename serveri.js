@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import authRoutes from './src/routes/auth.js'
 import teMbrojtura from './src/routes/te-mbrojtura.js'
+import postime from './src/routes/postime.js'
 import { merreHtmlPergjigjjen } from './src/utils/html.js'
 
 const app = new Hono()
@@ -28,6 +29,7 @@ app.get('/health', (c) => {
 
 app.route('/api', authRoutes)
 app.route('/api/te-mbrojtura', teMbrojtura)
+app.route('/api/postime', postime)
 
 app.notFound((c) => {
   return c.json({ gabim: 'Endpoint nuk u gjet' }, 404)
