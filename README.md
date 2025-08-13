@@ -1,11 +1,24 @@
 # Anycast Health Check Server
 
-A simple Node.js application that displays a health status message.
+A Cloudflare Workers application that displays a health status message with global edge deployment.
 
 ## Features
 - Displays "The server is healthy" in bold, centered on the page
-- Health check endpoint at `/health`
-- Ready for deployment on Heroku, Railway, or similar platforms
+- Health check endpoint at `/health` with location info
+- Optimized for Cloudflare Workers edge runtime
+- Lightning-fast response times globally
+
+## Prerequisites
+
+1. Install Wrangler CLI globally:
+```bash
+npm install -g wrangler
+```
+
+2. Authenticate with Cloudflare:
+```bash
+wrangler login
+```
 
 ## Installation
 
@@ -13,22 +26,40 @@ A simple Node.js application that displays a health status message.
 npm install
 ```
 
-## Running locally
+## Development
 
+Run locally with Wrangler dev server:
 ```bash
-npm start
+npm run dev
 ```
-
-The server will start on port 3000 (or the PORT environment variable if set).
 
 ## Deployment
 
-This app is ready to deploy to any platform that supports Node.js. It includes:
-- `Procfile` for Heroku
-- `engines` specification in `package.json`
-- Environment variable support for PORT
+Deploy to Cloudflare Workers:
+```bash
+npm run deploy
+```
+
+Deploy to production environment:
+```bash
+npm run publish
+```
+
+## Configuration
+
+Edit `wrangler.toml` to configure:
+- Worker name
+- Custom domains/routes
+- Environment variables
 
 ## Endpoints
 
 - `/` - Main page with health status
-- `/health` - JSON health check endpoint
+- `/health` - JSON health check endpoint with edge location info
+
+## Performance Benefits
+
+- **Global Edge**: Deployed to 300+ locations worldwide
+- **Zero Cold Start**: Workers start instantly
+- **Scalability**: Handles millions of requests automatically
+- **Cost Effective**: Pay only for requests, not idle time

@@ -1,9 +1,38 @@
-const express = require('express');
-const app = express();
-const porti = process.env.PORT || 3000;
+addEventListener('fetch', event => {
+  event.respondWith(pergjigjeKerkeses(event.request))
+})
 
-app.get('/', (req, res) => {
-  const htmlPergjigjja = `
+async function pergjigjeKerkeses(kerkesa) {
+  const url = new URL(kerkesa.url)
+  const rruga = url.pathname
+
+  if (rruga === '/') {
+    return new Response(merreHtmlPergjigjjen(), {
+      headers: {
+        'content-type': 'text/html;charset=UTF-8',
+      },
+    })
+  }
+
+  if (rruga === '/health') {
+    const shendeti = {
+      statusi: 'healthy',
+      koha: new Date().toISOString(),
+      vendndodhja: 'Cloudflare Workers'
+    }
+    
+    return new Response(JSON.stringify(shendeti), {
+      headers: {
+        'content-type': 'application/json;charset=UTF-8',
+      },
+    })
+  }
+
+  return new Response('Faqja nuk u gjet', { status: 404 })
+}
+
+function merreHtmlPergjigjjen() {
+  return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -33,15 +62,5 @@ app.get('/', (req, res) => {
         <div class="mesazhi">The server is healthy</div>
     </body>
     </html>
-  `;
-  
-  res.send(htmlPergjigjja);
-});
-
-app.get('/health', (req, res) => {
-  res.status(200).json({ statusi: 'healthy', koha: new Date().toISOString() });
-});
-
-app.listen(porti, () => {
-  console.log(`Serveri po punon ne portin ${porti}`);
-});
+  `
+}
