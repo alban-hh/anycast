@@ -1,0 +1,19 @@
+{
+  "name": "anycast",
+  "version": "1.0.0",
+  "main": "serveri.js",
+  "scripts": {
+    "start": "node serveri.js",
+    "dev": "node serveri.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Node.js health check server"
+}
